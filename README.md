@@ -158,7 +158,7 @@ Developed by Arin using Rachael AI Vision technology.
 
 For issues and questions:
 - Create an issue on GitHub
-- Contact: [support@arin.com]
+- Contact: [pablo@arinapin.ai]
 
 ---
 
