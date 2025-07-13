@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  pytorch-classifier:
+    build: .
+    container_name: pytorch-classifier
+    ports:
+      - "7860:7860"
+    volumes:
+      - ./models:/workspace/models
+      - ./data:/workspace/data
+      - ./logs:/workspace/logs
+      # Script principal como volumen para desarrollo sin rebuild
+      - ./classifier_app.py:/workspace/classifier_app.py
+      # Cache de modelos PyTorch persistente
+      - pytorch_cache:/tmp/torch_cache
+    environment:
+      - PYTHONUNBUFFERED=1
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    restart: unless-stopped
+
+volumes:
+  pytorch_cache:
