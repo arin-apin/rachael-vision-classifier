@@ -118,96 +118,10 @@ TRANSLATIONS = {
         'model_to_quantize': 'Modelo a cuantizar',
         'model_to_convert': 'Modelo a convertir',
         'image_to_classify': 'Imagen a clasificar',
-        'convert_models_title': 'Convertir modelos a diferentes formatos'
-    },
-    'en': {
-        # Main interface
-        'title': '🔬 PyTorch Image Classifier',
-        'upload_zip': '📁 Upload Dataset (ZIP)',
-        'upload_zip_info': 'Upload a ZIP with folders for each class',
-        'model_selection': '🤖 Model Selection',
-        'data_augmentation': '🎨 Data Augmentation',
-        'use_augmentation': 'Use Data Augmentation',
-        'rotation': 'Rotation',
-        'max_degrees': 'Max degrees',
-        'zoom': 'Zoom',
-        'zoom_range': 'Zoom range (min)',
-        'brightness_contrast': 'Brightness/Contrast',
-        'brightness_range': 'Brightness factor',
-        'contrast_range': 'Contrast factor',
-        'horizontal_flip': 'Horizontal Flip',
-        'vertical_flip': 'Vertical Flip',
-        'training_params': '⚙️ Training Parameters',
-        'epochs': 'Epochs',
-        'learning_rate': 'Tasa de Aprendizaje',
-        'train_button': '🚀 Train Model',
-        'training_progress': '📈 Training Progress',
-        'training_tab': '🎯 Training',
-        'metrics_tab': '📊 Metrics',
-        'quantization_tab': '⚡ Quantization',
-        'conversion_tab': '🔄 Conversion',
-        'prediction_tab': '🔮 Prediction',
-        'select_model': 'Select trained model:',
-        'refresh': 'Refresh',
-        'load_metrics': '📊 Load Metrics',
-        'quantize_model': '⚡ Quantize Model',
-        'convert_model': '🔄 Convert Model',
-        'upload_image': '📸 Upload Image for Prediction',
-        'predict_button': '🔮 Predict',
-        'prediction_result': '🎯 Prediction Result',
-        'model_info': '📋 Model Information',
-        # Results and messages
-        'analysis_title': '# 🔬 **Classification Analysis**',
-        'main_prediction': '## 🎯 **Main Prediction**',
-        'detailed_results': '## 📊 **Detailed Results**',
-        'all_classes': '*All classes ordered by confidence:*',
-        'confidence_analysis': '## 🧠 **Confidence Analysis**',
-        'technical_details': '## ⚙️ **Technical Details**',
-        'confidence_very_high': '✅ **Very High Confidence** - The model is very sure about this prediction',
-        'confidence_high': '✅ **High Confidence** - The model is confident in this prediction',
-        'confidence_moderate': '⚠️ **Moderate Confidence** - The model has some uncertainty',
-        'confidence_low': '❌ **Low Confidence** - The model is unsure, consider reviewing image quality',
-        'model_label': 'Model',
-        'classes_label': 'Classes',
-        'device_label': 'Device',
-        'image_size_label': 'Image size',
-        'confidence_label': 'confidence',
-        'total_label': 'total',
-        'normalized_label': 'normalized',
-        'no_model_trained': '❌ No trained model',
-        'model_loaded': '✅ Model loaded',
-        'with_classes': 'with',
-        'error_loading_model': '❌ Error loading model',
-        'dataset_valid': '✅ Valid dataset',
-        'classes_text': 'classes',
-        'images_text': 'images',
-        'need_folders': '❌ Need 2+ folders with images',
-        'few_images': '❌ Too few images',
-        'minimum': 'Minimum',
-        'error_text': '❌ Error',
-        # Interface elements
-        'dataset_tab': 'Dataset',
-        'upload_validate_title': 'Upload and validate dataset',
-        'upload_validate_desc': 'Upload a ZIP file with images organized in folders by class.',
-        'validate_button': 'Validate Dataset',
-        'validation_result': 'Validation Result',
-        'config_training_title': 'Configure and run training',
-        'base_model_label': 'Base Model',
-        'base_model_info': 'Select the base model for transfer learning',
-        'data_aug_title': 'Data Augmentation',
-        'training_params_title': 'Training Parameters',
-        'start_training': 'Start Training',
-        'training_plots': 'Training Plots',
-        'trained_model_label': 'Trained Model',
-        'model_to_quantize': 'Model to Quantize',
-        'model_to_convert': 'Model to Convert',
-        'image_to_classify': 'Image to Classify',
-        'convert_models_title': 'Convert models to different formats',
+        'convert_models_title': 'Convertir modelos a diferentes formatos',
         # Additional interface elements
-        'subtitle_professional_en': '🚀 **Professional PyTorch Image Classification Suite**',
-        'subtitle_advanced_en': '*Advanced Computer Vision Solutions*',
-        'subtitle_professional_es': '🚀 **Suite Profesional de Clasificación de Imágenes con PyTorch**',
-        'subtitle_advanced_es': '*Soluciones Avanzadas de Visión por Computadora*',
+        'subtitle_professional': '🚀 **Suite Profesional de Clasificación de Imágenes con PyTorch**',
+        'subtitle_advanced': '*Soluciones Avanzadas de Visión por Computadora*',
         'config_training_desc': 'Configurar y ejecutar entrenamiento',
         'training_parameters_title': '⚙️ Parámetros de Entrenamiento',
         'epochs_label': '📊 Épocas',
@@ -240,7 +154,7 @@ TRANSLATIONS = {
         'model_quantize_info': 'Selecciona un modelo entrenado para cuantizar',
         'quantization_type_label': '🔧 Tipo de cuantización',
         'quantization_type_info': 'INT8 reduce más el tamaño, FP16 mantiene mejor precisión',
-        'int8_option': 'INT8 - Máxima compresión (dynamic quantization)',
+        'int8_option': 'INT8 - Máxima compresión (cuantización dinámica)',
         'fp16_option': 'FP16 - Balance entre tamaño y precisión',
         'quantize_model_button': '⚡ Cuantizar Modelo',
         'quantization_result_label': '📋 Resultado de cuantización',
@@ -275,7 +189,47 @@ TRANSLATIONS = {
         'features_list': 'Aprendizaje Profundo • Transfer Learning • Optimización de Modelos • Aceleración TensorRT',
         'more_info': '🌐 **Más Información:**',
         'version_info': '**Versión:** PyTorch 2.1.0',
-        'copyright_text': '*© 2024 Rachael AI - Tecnología Avanzada de Visión por Computadora*'
+        'copyright_text': '*© 2024 Rachael AI - Tecnología Avanzada de Visión por Computadora*',
+        # Training messages
+        'training_completed': '✅ Entrenamiento completado!',
+        'training_completed_success': '✅ **Entrenamiento completado exitosamente!**',
+        'model_used': '🤖 **Modelo utilizado:**',
+        'configuration': '📊 **Configuración:**',
+        'best_result': '🏆 **Mejor resultado:**',
+        'best_val_accuracy': '• Mejor precisión validación:',
+        'epoch': 'época',
+        'plots_generated': '📊 Gráficas y matriz de confusión generadas correctamente',
+        'error_during_training': '❌ Error durante entrenamiento:',
+        'error_reading_info': '❌ Error leyendo información:',
+        'training_plots': '📊 Gráficas de entrenamiento',
+        # Quantization messages
+        'model_quantized': '✅ Modelo cuantizado',
+        'saved_in': '📁 Guardado en:',
+        'original_size': '📊 Tamaño original:',
+        'quantized_size': '📊 Tamaño cuantizado:',
+        'error_quantization': '❌ Error en cuantización:',
+        # Conversion messages  
+        'model_converted': '✅ Modelo convertido a',
+        'generated_files': '📄 Archivos generados:',
+        'error_conversion': '❌ Error en conversión:',
+        'error_tensorrt': '❌ Error en conversión TensorRT:',
+        'error_tflite': '❌ Conversión a TensorFlow Lite requiere instalación de tensorflow',
+        'format_not_supported': '❌ Formato no soportado:',
+        # Metrics messages
+        'epochs_label_metrics': '• Épocas:',
+        'best_accuracy_val': '• Mejor precisión (val):',
+        'final_loss_train': '• Pérdida final (train):',
+        'total_epochs': '• **Total épocas**:',
+        'best_accuracy_train': '• **Mejor precisión (train)**:',
+        'best_accuracy_val_full': '• **Mejor precisión (val)**:',
+        'lowest_loss_train': '• **Menor pérdida (train)**:',
+        'lowest_loss_val': '• **Menor pérdida (val)**:',
+        'training_summary': '📊 **Resumen del Entrenamiento**',
+        'total_epochs_simple': '• Total épocas:',
+        'best_accuracy_train_simple': '• Mejor precisión (train):',
+        'best_accuracy_val_simple': '• Mejor precisión (val):',
+        'lowest_loss_train_simple': '• Menor pérdida (train):',
+        'lowest_loss_val_simple': '• Menor pérdida (val):'
     },
     'en': {
         # Main interface
@@ -432,7 +386,50 @@ TRANSLATIONS = {
         'features_list': 'Deep Learning • Transfer Learning • Model Optimization • TensorRT Acceleration',
         'more_info': '🌐 **More Information:**',
         'version_info': '**Version:** PyTorch 2.1.0',
-        'copyright_text': '*© 2024 Rachael AI - Advanced Computer Vision Technology*'
+        'copyright_text': '*© 2024 Rachael AI - Advanced Computer Vision Technology*',
+        # Additional interface elements
+        'subtitle_professional': '🚀 **Professional PyTorch Image Classification Suite**',
+        'subtitle_advanced': '*Advanced Computer Vision Solutions*',
+        # Training messages
+        'training_completed': '✅ Training completed!',
+        'training_completed_success': '✅ **Training completed successfully!**',
+        'model_used': '🤖 **Model used:**',
+        'configuration': '📊 **Configuration:**',
+        'best_result': '🏆 **Best result:**',
+        'best_val_accuracy': '• Best validation accuracy:',
+        'epoch': 'epoch',
+        'plots_generated': '📊 Plots and confusion matrix generated successfully',
+        'error_during_training': '❌ Error during training:',
+        'error_reading_info': '❌ Error reading information:',
+        'training_plots': '📊 Training plots',
+        # Quantization messages
+        'model_quantized': '✅ Model quantized',
+        'saved_in': '📁 Saved in:',
+        'original_size': '📊 Original size:',
+        'quantized_size': '📊 Quantized size:',
+        'error_quantization': '❌ Error in quantization:',
+        # Conversion messages  
+        'model_converted': '✅ Model converted to',
+        'generated_files': '📄 Generated files:',
+        'error_conversion': '❌ Error in conversion:',
+        'error_tensorrt': '❌ Error in TensorRT conversion:',
+        'error_tflite': '❌ TensorFlow Lite conversion requires tensorflow installation',
+        'format_not_supported': '❌ Format not supported:',
+        # Metrics messages
+        'epochs_label_metrics': '• Epochs:',
+        'best_accuracy_val': '• Best accuracy (val):',
+        'final_loss_train': '• Final loss (train):',
+        'total_epochs': '• **Total epochs**:',
+        'best_accuracy_train': '• **Best accuracy (train)**:',
+        'best_accuracy_val_full': '• **Best accuracy (val)**:',
+        'lowest_loss_train': '• **Lowest loss (train)**:',
+        'lowest_loss_val': '• **Lowest loss (val)**:',
+        'training_summary': '📊 **Training Summary**',
+        'total_epochs_simple': '• Total epochs:',
+        'best_accuracy_train_simple': '• Best accuracy (train):',
+        'best_accuracy_val_simple': '• Best accuracy (val):',
+        'lowest_loss_train_simple': '• Lowest loss (train):',
+        'lowest_loss_val_simple': '• Lowest loss (val):'
     }
 }
 
@@ -522,6 +519,38 @@ def get_model_descriptions(lang=None):
                 "accuracy": "Exceptional (82-93% typical)",
                 "edge_quantized": "~12MB INT8, 3-4ms on CPU",
                 "use_case": "High accuracy, research"
+            },
+            "efficientnet_b4": {
+                "description": "Enhanced accuracy with larger model",
+                "params": "19M parameters",
+                "speed": "Slow (6-8ms inference)",
+                "accuracy": "Superior (83-94% typical)",
+                "edge_quantized": "~19MB INT8, 4-5ms on CPU",
+                "use_case": "High accuracy applications"
+            },
+            "efficientnet_b5": {
+                "description": "Further scaled for accuracy",
+                "params": "30M parameters",
+                "speed": "Slow (8-12ms inference)",
+                "accuracy": "Outstanding (84-95% typical)",
+                "edge_quantized": "~30MB INT8, 6-8ms on CPU",
+                "use_case": "Research, accuracy critical"
+            },
+            "efficientnet_b6": {
+                "description": "Near state-of-art accuracy",
+                "params": "43M parameters",
+                "speed": "Very slow (12-18ms inference)",
+                "accuracy": "State-of-art (85-96% typical)",
+                "edge_quantized": "~43MB INT8, 8-12ms on CPU",
+                "use_case": "Maximum accuracy needed"
+            },
+            "efficientnet_b7": {
+                "description": "Maximum EfficientNet accuracy",
+                "params": "66M parameters",
+                "speed": "Very slow (18-25ms inference)",
+                "accuracy": "Best-in-class (86-97% typical)",
+                "edge_quantized": "~66MB INT8, 12-18ms on CPU",
+                "use_case": "Research, competitions"
             }
         }
     else:  # Spanish
@@ -597,11 +626,43 @@ def get_model_descriptions(lang=None):
                 "accuracy": "Excepcional (82-93% típico)",
                 "edge_quantized": "~12MB INT8, 3-4ms en CPU",
                 "use_case": "Alta precisión, investigación"
+            },
+            "efficientnet_b4": {
+                "description": "Precisión mejorada con modelo más grande",
+                "params": "19M parámetros",
+                "speed": "Lento (6-8ms inference)",
+                "accuracy": "Superior (83-94% típico)",
+                "edge_quantized": "~19MB INT8, 4-5ms en CPU",
+                "use_case": "Aplicaciones de alta precisión"
+            },
+            "efficientnet_b5": {
+                "description": "Escalado adicional para precisión",
+                "params": "30M parámetros",
+                "speed": "Lento (8-12ms inference)",
+                "accuracy": "Sobresaliente (84-95% típico)",
+                "edge_quantized": "~30MB INT8, 6-8ms en CPU",
+                "use_case": "Investigación, precisión crítica"
+            },
+            "efficientnet_b6": {
+                "description": "Cerca del estado del arte",
+                "params": "43M parámetros",
+                "speed": "Muy lento (12-18ms inference)",
+                "accuracy": "Estado del arte (85-96% típico)",
+                "edge_quantized": "~43MB INT8, 8-12ms en CPU",
+                "use_case": "Máxima precisión requerida"
+            },
+            "efficientnet_b7": {
+                "description": "Máxima precisión EfficientNet",
+                "params": "66M parámetros",
+                "speed": "Muy lento (18-25ms inference)",
+                "accuracy": "Mejor de su clase (86-97% típico)",
+                "edge_quantized": "~66MB INT8, 12-18ms en CPU",
+                "use_case": "Investigación, competiciones"
             }
         }
 
 # Set language based on environment - for Docker deployment, default to English
-CURRENT_LANGUAGE = 'en'  # Force English for testing, can be changed by editing this line
+CURRENT_LANGUAGE = 'en'  # Force Spanish for testing, can be changed by editing this line
 
 # Simple trainer class (embedded for simplicity)
 class SimpleTrainer:
@@ -690,7 +751,7 @@ class SimpleTrainer:
         models_info = {}
         
         # Add each model with size info
-        for model_key in ["resnet18", "resnet34", "resnet50", "mobilenet_v2", "mobilenet_v3_small", "mobilenet_v3_large", "efficientnet_b0", "efficientnet_b2", "efficientnet_b3"]:
+        for model_key in ["resnet18", "resnet34", "resnet50", "mobilenet_v2", "mobilenet_v3_small", "mobilenet_v3_large", "efficientnet_b0", "efficientnet_b2", "efficientnet_b3", "efficientnet_b4", "efficientnet_b5", "efficientnet_b6", "efficientnet_b7"]:
             if model_key in model_descs:
                 model_names = {
                     "resnet18": "ResNet-18",
@@ -701,7 +762,11 @@ class SimpleTrainer:
                     "mobilenet_v3_large": "MobileNet-V3 Large",
                     "efficientnet_b0": "EfficientNet-B0",
                     "efficientnet_b2": "EfficientNet-B2",
-                    "efficientnet_b3": "EfficientNet-B3"
+                    "efficientnet_b3": "EfficientNet-B3",
+                    "efficientnet_b4": "EfficientNet-B4",
+                    "efficientnet_b5": "EfficientNet-B5",
+                    "efficientnet_b6": "EfficientNet-B6",
+                    "efficientnet_b7": "EfficientNet-B7"
                 }
                 
                 model_sizes = {
@@ -713,7 +778,11 @@ class SimpleTrainer:
                     "mobilenet_v3_large": "~21MB",
                     "efficientnet_b0": "~20MB",
                     "efficientnet_b2": "~31MB",
-                    "efficientnet_b3": "~43MB"
+                    "efficientnet_b3": "~43MB",
+                    "efficientnet_b4": "~75MB",
+                    "efficientnet_b5": "~118MB",
+                    "efficientnet_b6": "~166MB",
+                    "efficientnet_b7": "~256MB"
                 }
                 
                 models_info[model_key] = {
@@ -1299,12 +1368,31 @@ class SimpleTrainer:
                     
                     # EfficientNet detection - look for specific patterns
                     if 'features.' in key_string and 'block.' in key_string:
-                        if 'features.1.block.0' in key_string:
+                        # Count the number of features blocks to determine variant
+                        max_feature_idx = 0
+                        for key in state_dict_keys:
+                            if 'features.' in key and '.block.' in key:
+                                feature_match = key.split('features.')[1].split('.')[0]
+                                if feature_match.isdigit():
+                                    max_feature_idx = max(max_feature_idx, int(feature_match))
+                        
+                        # Map feature count to EfficientNet variant
+                        if max_feature_idx <= 15:
                             model_name = 'efficientnet_b0'
-                        elif any(f'features.{i}.block.' in key_string for i in range(7, 9)):
+                        elif max_feature_idx <= 22:
+                            model_name = 'efficientnet_b1'
+                        elif max_feature_idx <= 22:
                             model_name = 'efficientnet_b2'
-                        elif any(f'features.{i}.block.' in key_string for i in range(9, 11)):
+                        elif max_feature_idx <= 25:
                             model_name = 'efficientnet_b3'
+                        elif max_feature_idx <= 31:
+                            model_name = 'efficientnet_b4'
+                        elif max_feature_idx <= 38:
+                            model_name = 'efficientnet_b5'
+                        elif max_feature_idx <= 45:
+                            model_name = 'efficientnet_b6'
+                        elif max_feature_idx <= 54:
+                            model_name = 'efficientnet_b7'
                         else:
                             model_name = 'efficientnet_b0'  # Default EfficientNet
                     
@@ -1424,15 +1512,15 @@ class SimpleTrainer:
             if 'training_history' in checkpoint:
                 history = checkpoint['training_history']
                 info += f"\n📈 **Resumen del Entrenamiento:**\n"
-                info += f"• Épocas: {len(history['epochs'])}\n"
-                info += f"• Mejor precisión (val): {max(history['val_acc']):.2f}%\n"
-                info += f"• Pérdida final (train): {history['train_loss'][-1]:.4f}\n"
+                info += f"{t('epochs_label_metrics')} {len(history['epochs'])}\n"
+                info += f"{t('best_accuracy_val')} {max(history['val_acc']):.2f}%\n"
+                info += f"{t('final_loss_train')} {history['train_loss'][-1]:.4f}\n"
                 info += f"• Pérdida final (val): {history['val_loss'][-1]:.4f}\n"
             
             return info
             
         except Exception as e:
-            return f"❌ Error leyendo información: {str(e)}"
+            return f"{t('error_reading_info')} {str(e)}"
     
     def get_training_plots(self):
         """Load and return training plots"""
@@ -1505,12 +1593,31 @@ class SimpleTrainer:
                     
                     # EfficientNet detection - look for specific patterns
                     if 'features.' in key_string and 'block.' in key_string:
-                        if 'features.1.block.0' in key_string:
+                        # Count the number of features blocks to determine variant
+                        max_feature_idx = 0
+                        for key in state_dict_keys:
+                            if 'features.' in key and '.block.' in key:
+                                feature_match = key.split('features.')[1].split('.')[0]
+                                if feature_match.isdigit():
+                                    max_feature_idx = max(max_feature_idx, int(feature_match))
+                        
+                        # Map feature count to EfficientNet variant
+                        if max_feature_idx <= 15:
                             model_name = 'efficientnet_b0'
-                        elif any(f'features.{i}.block.' in key_string for i in range(7, 9)):
+                        elif max_feature_idx <= 22:
+                            model_name = 'efficientnet_b1'
+                        elif max_feature_idx <= 22:
                             model_name = 'efficientnet_b2'
-                        elif any(f'features.{i}.block.' in key_string for i in range(9, 11)):
+                        elif max_feature_idx <= 25:
                             model_name = 'efficientnet_b3'
+                        elif max_feature_idx <= 31:
+                            model_name = 'efficientnet_b4'
+                        elif max_feature_idx <= 38:
+                            model_name = 'efficientnet_b5'
+                        elif max_feature_idx <= 45:
+                            model_name = 'efficientnet_b6'
+                        elif max_feature_idx <= 54:
+                            model_name = 'efficientnet_b7'
                         else:
                             model_name = 'efficientnet_b0'  # Default EfficientNet
                     
@@ -1533,7 +1640,7 @@ class SimpleTrainer:
                 # If loading fails, try to determine the correct architecture
                 if 'features.' in str(e) and 'block.' in str(e):
                     # Try different EfficientNet variants
-                    for variant in ['efficientnet_b0', 'efficientnet_b1', 'efficientnet_b2', 'efficientnet_b3']:
+                    for variant in ['efficientnet_b0', 'efficientnet_b1', 'efficientnet_b2', 'efficientnet_b3', 'efficientnet_b4', 'efficientnet_b5', 'efficientnet_b6', 'efficientnet_b7']:
                         try:
                             model = self.create_model(num_classes, variant)
                             model.load_state_dict(checkpoint['model_state_dict'])
@@ -1555,6 +1662,18 @@ class SimpleTrainer:
                             continue
                     else:
                         raise RuntimeError(f"Could not load model. Architecture mismatch. Keys suggest MobileNet but couldn't match variant.")
+                elif 'layer1.' in str(e) or 'layer2.' in str(e):
+                    # Try ResNet variants
+                    for variant in ['resnet18', 'resnet34', 'resnet50']:
+                        try:
+                            model = self.create_model(num_classes, variant)
+                            model.load_state_dict(checkpoint['model_state_dict'])
+                            model_name = variant
+                            break
+                        except:
+                            continue
+                    else:
+                        raise RuntimeError(f"Could not load model. Architecture mismatch. Keys suggest ResNet but couldn't match variant.")
                 else:
                     raise e
             
@@ -1625,10 +1744,10 @@ class SimpleTrainer:
             with open(f"{quant_dir}/quantization_config.json", 'w') as f:
                 json.dump(quant_config, f, indent=2)
             
-            result_msg = f"✅ Modelo cuantizado ({method_desc})\n"
-            result_msg += f"📁 Guardado en: {quant_dir}\n"
-            result_msg += f"📊 Tamaño original: {original_size_mb:.1f} MB\n"
-            result_msg += f"📊 Tamaño cuantizado: {quantized_size_mb:.1f} MB\n"
+            result_msg = f"{t('model_quantized')} ({method_desc})\n"
+            result_msg += f"{t('saved_in')} {quant_dir}\n"
+            result_msg += f"{t('original_size')} {original_size_mb:.1f} MB\n"
+            result_msg += f"{t('quantized_size')} {quantized_size_mb:.1f} MB\n"
             result_msg += f"🔄 Reducción: {quant_config['size_reduction_percent']:.1f}%"
             
             return True, result_msg
@@ -1636,7 +1755,7 @@ class SimpleTrainer:
         except Exception as e:
             import traceback
             error_details = traceback.format_exc()
-            return False, f"❌ Error en cuantización: {str(e)}\n\nDetalles:\n{error_details}"
+            return False, f"{t('error_quantization')} {str(e)}\n\nDetalles:\n{error_details}"
     
     def convert_model(self, model_session_dir, format_type):
         """Convert trained model to different formats"""
@@ -1668,7 +1787,16 @@ class SimpleTrainer:
                     elif 'inverted_residual' in first_key or 'conv_dw' in first_key:
                         model_name = 'mobilenet_v2'  # Default MobileNet
                 elif first_key.startswith('conv1.') or first_key.startswith('layer1.'):
-                    model_name = 'resnet18'  # Default ResNet
+                    # Detect ResNet variant by checking for specific layers
+                    if 'layer1.2.' in str(state_dict_keys):
+                        if 'layer3.5.' in str(state_dict_keys):
+                            model_name = 'resnet50'  # Has layer1.2 and layer3.5
+                        elif 'layer3.1.' in str(state_dict_keys):
+                            model_name = 'resnet34'  # Has layer1.2 but not layer3.5
+                        else:
+                            model_name = 'resnet18'  # Default
+                    else:
+                        model_name = 'resnet18'  # No layer1.2 means ResNet-18
             
             # Recreate model with detected architecture
             model = self.create_model(num_classes, model_name)
@@ -1678,7 +1806,7 @@ class SimpleTrainer:
                 # If loading fails, try to determine the correct architecture
                 if 'features.' in str(e) and 'block.' in str(e):
                     # Try different EfficientNet variants
-                    for variant in ['efficientnet_b0', 'efficientnet_b1', 'efficientnet_b2', 'efficientnet_b3']:
+                    for variant in ['efficientnet_b0', 'efficientnet_b1', 'efficientnet_b2', 'efficientnet_b3', 'efficientnet_b4', 'efficientnet_b5', 'efficientnet_b6', 'efficientnet_b7']:
                         try:
                             model = self.create_model(num_classes, variant)
                             model.load_state_dict(checkpoint['model_state_dict'])
@@ -1700,6 +1828,18 @@ class SimpleTrainer:
                             continue
                     else:
                         raise RuntimeError(f"Could not load model. Architecture mismatch. Keys suggest MobileNet but couldn't match variant.")
+                elif 'layer1.' in str(e) or 'layer2.' in str(e):
+                    # Try ResNet variants
+                    for variant in ['resnet18', 'resnet34', 'resnet50']:
+                        try:
+                            model = self.create_model(num_classes, variant)
+                            model.load_state_dict(checkpoint['model_state_dict'])
+                            model_name = variant
+                            break
+                        except:
+                            continue
+                    else:
+                        raise RuntimeError(f"Could not load model. Architecture mismatch. Keys suggest ResNet but couldn't match variant.")
                 else:
                     raise e
             
@@ -1879,13 +2019,13 @@ Check error details in the conversion output.
                         result_files.append("TENSORRT_INSTRUCTIONS.txt")
                     
                 except Exception as trt_error:
-                    return False, f"❌ Error en conversión TensorRT: {str(trt_error)}"
+                    return False, f"{t('error_tensorrt')} {str(trt_error)}"
             
             elif format_type == "tflite":
-                return False, "❌ Conversión a TensorFlow Lite requiere instalación de tensorflow"
+                return False, t('error_tflite')
             
             else:
-                return False, f"❌ Formato no soportado: {format_type}"
+                return False, f"{t('format_not_supported')} {format_type}"
             
             # Save conversion config
             conv_config = {
@@ -1902,9 +2042,9 @@ Check error details in the conversion output.
             with open(f"{conv_dir}/conversion_config.json", 'w') as f:
                 json.dump(conv_config, f, indent=2)
             
-            result_msg = f"✅ Modelo convertido a {format_type.upper()}\n"
-            result_msg += f"📁 Guardado en: {conv_dir}\n"
-            result_msg += f"📄 Archivos generados:\n"
+            result_msg = f"{t('model_converted')} {format_type.upper()}\n"
+            result_msg += f"{t('saved_in')} {conv_dir}\n"
+            result_msg += f"{t('generated_files')}\n"
             for file_info in result_files:
                 result_msg += f"  • {file_info}\n"
             
@@ -1913,7 +2053,7 @@ Check error details in the conversion output.
         except Exception as e:
             import traceback
             error_details = traceback.format_exc()
-            return False, f"❌ Error en conversión: {str(e)}\n\nDetalles:\n{error_details}"
+            return False, f"{t('error_conversion')} {str(e)}\n\nDetalles:\n{error_details}"
 
 # Initialize trainer
 trainer = SimpleTrainer()
@@ -1994,11 +2134,11 @@ def train_model(epochs, learning_rate, model_name,
             augmentation_config=augmentation_config
         )
         
-        progress(1.0, desc="✅ Entrenamiento completado!")
+        progress(1.0, desc=t('training_completed'))
         
-        result = f"✅ **Entrenamiento completado exitosamente!**\n\n"
-        result += f"🤖 **Modelo utilizado:** {model_info.get('name', model_name)}\n"
-        result += f"📊 **Configuración:**\n"
+        result = f"{t('training_completed_success')}\n\n"
+        result += f"{t('model_used')} {model_info.get('name', model_name)}\n"
+        result += f"{t('configuration')}\n"
         result += f"• Épocas entrenadas: {epochs}\n"
         result += f"• Learning rate: {learning_rate}\n"
         result += f"• Parámetros del modelo: {model_info.get('params', 'N/A')}\n"
@@ -2016,9 +2156,9 @@ def train_model(epochs, learning_rate, model_name,
             # Best metrics
             best_val_acc = max(history['val_acc'])
             best_val_epoch = history['epochs'][history['val_acc'].index(best_val_acc)]
-            result += f"🏆 **Mejor resultado:**\n"
-            result += f"• Mejor precisión validación: {best_val_acc:.2f}% (época {best_val_epoch})\n"
-            result += f"\n📊 Gráficas y matriz de confusión generadas correctamente"
+            result += f"{t('best_result')}\n"
+            result += f"{t('best_val_accuracy')} {best_val_acc:.2f}% ({t('epoch')} {best_val_epoch})\n"
+            result += f"\n{t('plots_generated')}"
         
         # Load plots
         plots = trainer.get_training_plots()
@@ -2026,7 +2166,7 @@ def train_model(epochs, learning_rate, model_name,
         return result, plots
         
     except Exception as e:
-        return f"❌ Error durante entrenamiento: {str(e)}", None
+        return f"{t('error_during_training')} {str(e)}", None
 
 
 def predict_image(image):
@@ -2121,17 +2261,17 @@ def load_training_plots(model_dir=None):
             try:
                 with open(history_path, 'r') as f:
                     metrics = json.load(f)
-                    summary += f"• **Total épocas**: {len(metrics.get('epochs', []))}\n"
+                    summary += f"{t('total_epochs')} {len(metrics.get('epochs', []))}\n"
                     train_acc = metrics.get('train_acc', [])
                     val_acc = metrics.get('val_acc', [])
                     train_loss = metrics.get('train_loss', [])
                     val_loss = metrics.get('val_loss', [])
                     
                     if train_acc and val_acc:
-                        summary += f"• **Mejor precisión (train)**: {max(train_acc):.2f}%\n"
-                        summary += f"• **Mejor precisión (val)**: {max(val_acc):.2f}%\n"
-                        summary += f"• **Menor pérdida (train)**: {min(train_loss):.4f}\n"
-                        summary += f"• **Menor pérdida (val)**: {min(val_loss):.4f}\n"
+                        summary += f"{t('best_accuracy_train')} {max(train_acc):.2f}%\n"
+                        summary += f"{t('best_accuracy_val_full')} {max(val_acc):.2f}%\n"
+                        summary += f"{t('lowest_loss_train')} {min(train_loss):.4f}\n"
+                        summary += f"{t('lowest_loss_val')} {min(val_loss):.4f}\n"
                         
                         # Check for overfitting
                         final_train_acc = train_acc[-1]
@@ -2150,12 +2290,12 @@ def load_training_plots(model_dir=None):
         
         metrics = trainer.get_metrics_data()
         if metrics:
-            summary = f"📊 **Resumen del Entrenamiento**\n\n"
-            summary += f"• Total épocas: {len(metrics['epochs'])}\n"
-            summary += f"• Mejor precisión (train): {max(metrics['train_acc']):.2f}%\n"
-            summary += f"• Mejor precisión (val): {max(metrics['val_acc']):.2f}%\n"
-            summary += f"• Menor pérdida (train): {min(metrics['train_loss']):.4f}\n"
-            summary += f"• Menor pérdida (val): {min(metrics['val_loss']):.4f}\n"
+            summary = f"{t('training_summary')}\n\n"
+            summary += f"{t('total_epochs_simple')} {len(metrics['epochs'])}\n"
+            summary += f"{t('best_accuracy_train_simple')} {max(metrics['train_acc']):.2f}%\n"
+            summary += f"{t('best_accuracy_val_simple')} {max(metrics['val_acc']):.2f}%\n"
+            summary += f"{t('lowest_loss_train_simple')} {min(metrics['train_loss']):.4f}\n"
+            summary += f"{t('lowest_loss_val_simple')} {min(metrics['val_loss']):.4f}\n"
             
             # Check for overfitting
             final_train_acc = metrics['train_acc'][-1]
@@ -2165,7 +2305,7 @@ def load_training_plots(model_dir=None):
             
             return plots, summary
     
-    return plots, "📊 Gráficas de entrenamiento"
+    return plots, t('training_plots')
 
 # Gradio Interface with Rachael.vision theme
 with gr.Blocks(title=t('title'), theme=gr.themes.Soft().set(
@@ -2180,12 +2320,8 @@ with gr.Blocks(title=t('title'), theme=gr.themes.Soft().set(
     button_secondary_background_fill_hover='#5c636a'
 )) as demo:
     gr.Markdown(f"# {t('title')}")
-    if CURRENT_LANGUAGE == 'en':
-        gr.Markdown(f"### {t('subtitle_professional_en')}")
-        gr.Markdown(t('subtitle_advanced_en'))
-    else:
-        gr.Markdown(f"### {t('subtitle_professional_es')}")
-        gr.Markdown(t('subtitle_advanced_es'))
+    gr.Markdown(f"### {t('subtitle_professional')}")
+    gr.Markdown(t('subtitle_advanced'))
     
     with gr.Tab(f"📁 {t('dataset_tab')}"):
         gr.Markdown(f"### {t('upload_validate_title')}")
