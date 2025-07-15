@@ -1,5 +1,34 @@
-# Stage 1: Use PyTorch base image
-FROM pytorch-base:latest as web-stage
+# Stage 1: Build PyTorch base image
+FROM python:3.10-slim as pytorch-base
+
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    libgl1-mesa-glx \
+    libglib2.0-0 \
+    libsm6 \
+    libxext6 \
+    libxrender-dev \
+    libgomp1 \
+    wget \
+    && rm -rf /var/lib/apt/lists/*
+
+# Set working directory
+WORKDIR /workspace
+
+# Install PyTorch and scientific computing packages
+RUN pip install --no-cache-dir \
+    torch==2.1.0 \
+    torchvision==0.16.0 \
+    numpy==1.24.3 \
+    scikit-learn==1.3.2 \
+    matplotlib==3.7.1 \
+    tensorboard==2.15.1
+
+# Create directories for volumes
+RUN mkdir -p /workspace/app /workspace/models /workspace/data /workspace/logs
+
+# Stage 2: Build the application image
+FROM pytorch-base as web-stage
 
 # Install Gradio with compatible versions (confirmed working)
 RUN pip install --no-cache-dir \
