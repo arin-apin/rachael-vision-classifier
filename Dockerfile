@@ -1,5 +1,6 @@
 # Stage 1: Build PyTorch base image
-FROM python:3.10-slim as pytorch-base
+# Using Debian 12 (Bookworm) for better stability
+FROM python:3.10-slim-bookworm as pytorch-base
 
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
@@ -16,9 +17,10 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /workspace
 
 # Install PyTorch and scientific computing packages
+# Updated to latest stable versions for better EfficientNet support
 RUN pip install --no-cache-dir \
-    torch==2.1.0 \
-    torchvision==0.16.0 \
+    torch==2.3.1 \
+    torchvision==0.18.1 \
     numpy==1.24.3 \
     scikit-learn==1.3.2 \
     matplotlib==3.7.1 \

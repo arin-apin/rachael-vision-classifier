@@ -863,23 +863,49 @@ class SimpleTrainer:
             elif model_name == "mobilenet_v3_large":
                 model = models.mobilenet_v3_large(weights=models.MobileNet_V3_Large_Weights.IMAGENET1K_V1)
             
-            # EfficientNet V1 Family
+            # EfficientNet V1 Family - Handle potential hash verification issues
             elif model_name == "efficientnet_b0":
-                model = models.efficientnet_b0(weights=models.EfficientNet_B0_Weights.IMAGENET1K_V1)
+                try:
+                    model = models.efficientnet_b0(weights=models.EfficientNet_B0_Weights.IMAGENET1K_V1)
+                except Exception as e:
+                    print(f"Warning: Could not load pretrained weights for {model_name}: {e}")
+                    print("Using random initialization - training will be much slower")
+                    model = models.efficientnet_b0(weights=None)
             elif model_name == "efficientnet_b1":
-                model = models.efficientnet_b1(weights=models.EfficientNet_B1_Weights.IMAGENET1K_V1)
+                try:
+                    model = models.efficientnet_b1(weights=models.EfficientNet_B1_Weights.IMAGENET1K_V1)
+                except:
+                    model = models.efficientnet_b1(weights=None)
             elif model_name == "efficientnet_b2":
-                model = models.efficientnet_b2(weights=models.EfficientNet_B2_Weights.IMAGENET1K_V1)
+                try:
+                    model = models.efficientnet_b2(weights=models.EfficientNet_B2_Weights.IMAGENET1K_V1)
+                except:
+                    model = models.efficientnet_b2(weights=None)
             elif model_name == "efficientnet_b3":
-                model = models.efficientnet_b3(weights=models.EfficientNet_B3_Weights.IMAGENET1K_V1)
+                try:
+                    model = models.efficientnet_b3(weights=models.EfficientNet_B3_Weights.IMAGENET1K_V1)
+                except:
+                    model = models.efficientnet_b3(weights=None)
             elif model_name == "efficientnet_b4":
-                model = models.efficientnet_b4(weights=models.EfficientNet_B4_Weights.IMAGENET1K_V1)
+                try:
+                    model = models.efficientnet_b4(weights=models.EfficientNet_B4_Weights.IMAGENET1K_V1)
+                except:
+                    model = models.efficientnet_b4(weights=None)
             elif model_name == "efficientnet_b5":
-                model = models.efficientnet_b5(weights=models.EfficientNet_B5_Weights.IMAGENET1K_V1)
+                try:
+                    model = models.efficientnet_b5(weights=models.EfficientNet_B5_Weights.IMAGENET1K_V1)
+                except:
+                    model = models.efficientnet_b5(weights=None)
             elif model_name == "efficientnet_b6":
-                model = models.efficientnet_b6(weights=models.EfficientNet_B6_Weights.IMAGENET1K_V1)
+                try:
+                    model = models.efficientnet_b6(weights=models.EfficientNet_B6_Weights.IMAGENET1K_V1)
+                except:
+                    model = models.efficientnet_b6(weights=None)
             elif model_name == "efficientnet_b7":
-                model = models.efficientnet_b7(weights=models.EfficientNet_B7_Weights.IMAGENET1K_V1)
+                try:
+                    model = models.efficientnet_b7(weights=models.EfficientNet_B7_Weights.IMAGENET1K_V1)
+                except:
+                    model = models.efficientnet_b7(weights=None)
             
             # EfficientNet V2 Family
             elif model_name == "efficientnet_v2_s":
@@ -944,18 +970,25 @@ class SimpleTrainer:
             )
             
         elif "efficientnet" in model_name:
-            # EfficientNet family uses 'classifier' attribute
-            if hasattr(model.classifier, '1') and hasattr(model.classifier[1], 'in_features'):
-                # Most EfficientNet models have: Dropout -> Linear
-                num_features = model.classifier[1].in_features
+            # EfficientNet family uses 'classifier' attribute with structure: [Dropout, Linear]
+            # Get the in_features from the last linear layer
+            if isinstance(model.classifier, nn.Sequential):
+                # Find the Linear layer in the classifier
+                for module in model.classifier:
+                    if isinstance(module, nn.Linear):
+                        num_features = module.in_features
+                        break
             else:
-                # Fallback to last layer
-                num_features = model.classifier[-1].in_features
+                # Fallback for different structures
+                num_features = model.classifier[-1].in_features if hasattr(model.classifier[-1], 'in_features') else 1280
             
-            # Simple classifier for EfficientNet (they're already very efficient)
+            # Replace classifier with a more robust architecture for EfficientNet
             model.classifier = nn.Sequential(
+                nn.Dropout(0.2),
+                nn.Linear(num_features, 512),
+                nn.ReLU(inplace=True),
                 nn.Dropout(0.3),
-                nn.Linear(num_features, num_classes)
+                nn.Linear(512, num_classes)
             )
             
         else:  # ResNet models
@@ -1016,8 +1049,28 @@ class SimpleTrainer:
                 
                 return image, label
         
+        # Get model name early to determine proper image size
+        model_name = getattr(self, 'selected_model', 'resnet18')
+        
         # Data transforms with augmentation based on user preferences
-        transform_list = [transforms.Resize((224, 224))]
+        # Use proper size for EfficientNet models
+        if "efficientnet" in model_name:
+            # EfficientNet models have different optimal input sizes
+            efficientnet_sizes = {
+                "efficientnet_b0": 224,
+                "efficientnet_b1": 240,
+                "efficientnet_b2": 260,
+                "efficientnet_b3": 300,
+                "efficientnet_b4": 380,
+                "efficientnet_b5": 456,
+                "efficientnet_b6": 528,
+                "efficientnet_b7": 600,
+            }
+            img_size = efficientnet_sizes.get(model_name, 224)
+        else:
+            img_size = 224
+        
+        transform_list = [transforms.Resize((img_size, img_size))]
         
         # Store augmentation config for dataset info
         self.augmentation_config = augmentation_config if augmentation_config else {}
@@ -1067,19 +1120,38 @@ class SimpleTrainer:
         
         # Create model
         num_classes = len(self.classes)
-        model_name = getattr(self, 'selected_model', 'resnet18')
+        # model_name already obtained above for transforms
         self.model = self.create_model(num_classes, model_name)
         
         # Training setup
         criterion = nn.CrossEntropyLoss()
-        # Get trainable parameters based on model type
-        if hasattr(self.model, 'fc'):
-            trainable_params = self.model.fc.parameters()
-        elif hasattr(self.model, 'classifier'):
-            trainable_params = self.model.classifier.parameters()
+        
+        # For EfficientNet, we need to fine-tune more layers for better learning
+        if "efficientnet" in model_name:
+            # Freeze early layers but train last few blocks + classifier
+            for name, param in self.model.named_parameters():
+                # Keep last 2 blocks trainable for EfficientNet
+                if 'features.6' in name or 'features.7' in name or 'features.8' in name or 'classifier' in name:
+                    param.requires_grad = True
+                else:
+                    param.requires_grad = False
+            
+            # Use all trainable parameters
+            trainable_params = filter(lambda p: p.requires_grad, self.model.parameters())
+            # Lower learning rate for EfficientNet
+            optimizer = optim.AdamW(trainable_params, lr=lr * 0.1, weight_decay=0.01)
         else:
-            trainable_params = self.model.parameters()
-        optimizer = optim.Adam(trainable_params, lr=lr)
+            # For other models, train only the final classifier
+            if hasattr(self.model, 'fc'):
+                trainable_params = self.model.fc.parameters()
+            elif hasattr(self.model, 'classifier'):
+                trainable_params = self.model.classifier.parameters()
+            else:
+                trainable_params = self.model.parameters()
+            optimizer = optim.Adam(trainable_params, lr=lr)
+        
+        # Add learning rate scheduler for better convergence
+        scheduler = optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=epochs, eta_min=lr * 0.001)
         
         # Training loop
         training_history = {
@@ -1172,6 +1244,9 @@ class SimpleTrainer:
             val_acc = 100 * val_correct / val_total
             avg_train_loss = train_loss / len(train_loader)
             avg_val_loss = val_loss / len(val_loader) if len(val_loader) > 0 else 0
+            
+            # Step the learning rate scheduler
+            scheduler.step()
             
             # Update history
             training_history['epochs'].append(epoch + 1)
@@ -1428,9 +1503,26 @@ class SimpleTrainer:
                 return msg
         
         try:
+            # Get the correct image size for the model
+            model_name = getattr(self, 'selected_model', 'resnet18')
+            if "efficientnet" in model_name:
+                efficientnet_sizes = {
+                    "efficientnet_b0": 224,
+                    "efficientnet_b1": 240,
+                    "efficientnet_b2": 260,
+                    "efficientnet_b3": 300,
+                    "efficientnet_b4": 380,
+                    "efficientnet_b5": 456,
+                    "efficientnet_b6": 528,
+                    "efficientnet_b7": 600,
+                }
+                img_size = efficientnet_sizes.get(model_name, 224)
+            else:
+                img_size = 224
+            
             # Preprocess image
             transform = transforms.Compose([
-                transforms.Resize((224, 224)),
+                transforms.Resize((img_size, img_size)),
                 transforms.ToTensor(),
                 transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225])
             ])
