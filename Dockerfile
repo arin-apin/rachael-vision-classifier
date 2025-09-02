@@ -16,6 +16,8 @@ RUN apt-get update && apt-get install -y \
 # Set working directory
 WORKDIR /workspace
 
+RUN pip install --no-cache-dir -U pip
+
 # Install PyTorch and scientific computing packages
 # Updated to latest stable versions for better EfficientNet support
 RUN pip install --no-cache-dir \
